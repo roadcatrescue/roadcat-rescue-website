@@ -102,7 +102,7 @@
       <div class="container">
         <div class="grid-2">
           <div class="story-text">
-            <span class="hero__eyebrow" style="color: var(--amber); letter-spacing: 0.1em; font-size: 0.78rem;">The Problem</span>
+          <span class="hero__eyebrow story-eyebrow">The Problem</span>
             <h2 id="story-heading">Hidden in plain sight</h2>
             <p>
               At rest stops up and down California's highways, feral cat colonies live in the margins.
@@ -164,22 +164,22 @@
           <p class="lead">Whether you have $5, five hours, or five followers — there's a place for you.</p>
         </div>
         <div class="grid-3">
-          <div class="card" style="text-align:center;">
-            <div class="icon-badge" style="margin:0 auto 1rem;" aria-hidden="true">💛</div>
+          <div class="card card--center">
+            <div class="icon-badge icon-badge--center" aria-hidden="true">💛</div>
             <h3>Donate</h3>
             <p>Your gift funds vet care, trapping supplies, and colony management — the direct field work of TNR. A $75 donation covers one spay/neuter surgery.</p>
             <br>
             <a href="#donate" class="btn btn--amber">Give Now</a>
           </div>
-          <div class="card" style="text-align:center;">
-            <div class="icon-badge" style="margin:0 auto 1rem;" aria-hidden="true">🙌</div>
+          <div class="card card--center">
+            <div class="icon-badge icon-badge--center" aria-hidden="true">🙌</div>
             <h3>Volunteer</h3>
             <p>Join a trap team, monitor a colony, drive cats to the vet, or help with grant writing and social media outreach.</p>
             <br>
             <a href="how-to-help.html" class="btn btn--outline-teal">Get Involved</a>
           </div>
-          <div class="card" style="text-align:center;">
-            <div class="icon-badge" style="margin:0 auto 1rem;" aria-hidden="true">📣</div>
+          <div class="card card--center">
+            <div class="icon-badge icon-badge--center" aria-hidden="true">📣</div>
             <h3>Spread the Word</h3>
             <p>Share our mission with friends, family, and local communities. Awareness is the first step toward action.</p>
             <br>
@@ -190,10 +190,10 @@
     </section>
 
     <!-- ===== REPORT A COLONY STRIP ===== -->
-    <section class="section section--white" aria-labelledby="report-heading" style="padding-top:0;">
-      <div class="container" style="text-align:center; max-width:720px;">
-        <div class="card" style="text-align:center;">
-          <div class="icon-badge" style="margin:0 auto 1rem;" aria-hidden="true">📍</div>
+    <section class="section section--white section--no-top" aria-labelledby="report-heading">
+      <div class="container container--narrow text-center">
+        <div class="card card--center">
+          <div class="icon-badge icon-badge--center" aria-hidden="true">📍</div>
           <h3 id="report-heading">Seen cats at a rest stop?</h3>
           <p>You may have just found a colony nobody knows about. Tell us where — a rest area name or highway exit is enough. Colony reports from travelers are how our work starts.</p>
           <br>
@@ -204,11 +204,11 @@
 
     <!-- ===== CTA STRIP ===== -->
     <section class="cta-strip" id="donate" aria-labelledby="cta-heading">
-      <div class="container" style="text-align:center;">
-        <span class="hero__eyebrow" style="color:var(--amber);">Join the Mission</span>
+      <div class="container text-center">
+        <span class="hero__eyebrow eyebrow--amber">Join the Mission</span>
         <h2 id="cta-heading">Ready to make a difference?</h2>
         <p>Your donation funds vet care and trapping supplies. Every volunteer hour saves lives.<br>The cats at the rest stops can't ask for help. But you can give it.</p>
-        <div class="btn-group" style="justify-content:center;">
+        <div class="btn-group btn-group--center">
           <a href="#donate" class="btn btn--amber btn--lg">Donate Now</a>
           <a href="how-to-help.html" class="btn btn--outline-teal btn--lg">Volunteer</a>
         </div>
@@ -227,8 +227,12 @@
         </a>
         <p>Humanely managing feral cat colonies at California highway rest stops.</p>
         <div class="footer-social">
-          <a href="https://instagram.com/roadcatrescue" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
-          <a href="https://facebook.com/roadcatrescue" target="_blank" rel="noopener" aria-label="Facebook">👥</a>
+          <a href="https://instagram.com/roadcatrescue" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://facebook.com/roadcatrescue" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
         </div>
       </div>
       <div class="footer-col">

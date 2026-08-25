@@ -27,7 +27,9 @@
   --shadow: 0 2px 16px rgba(26,95,107,0.10);
   --shadow-hover: 0 6px 28px rgba(26,95,107,0.18);
 
-  --transition: 0.25s ease;
+  --transition-color: 200ms ease-out;
+  --transition-transform: 160ms ease-out;
+  --transition-shadow: 250ms ease-out;
 }
 
 /* ---------- Reset & Base ---------- */
@@ -59,7 +61,7 @@ img {
 a {
   color: var(--teal);
   text-decoration: none;
-  transition: color var(--transition);
+  transition: color var(--transition-color);
 }
 
 a:hover { color: var(--amber); }
@@ -137,21 +139,24 @@ p:last-child { margin-bottom: 0; }
 .btn {
   display: inline-block;
   padding: 0.8rem 2rem;
-  border-radius: var(--radius);
+  border-radius: 8px;
   font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   cursor: pointer;
   border: 2px solid transparent;
-  transition: background var(--transition), color var(--transition),
-              border-color var(--transition), transform var(--transition),
-              box-shadow var(--transition);
+  transition: background var(--transition-color), color var(--transition-color),
+              border-color var(--transition-color), transform var(--transition-transform),
+              box-shadow var(--transition-shadow);
   text-align: center;
 }
 
-.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
-.btn:active { transform: translateY(0); }
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover { box-shadow: var(--shadow-hover); }
+}
+
+.btn:active { transform: scale(0.97); transition-duration: 100ms; }
 
 .btn--amber {
   background: var(--amber);
@@ -183,6 +188,12 @@ p:last-child { margin-bottom: 0; }
 .btn--outline-teal:hover {
   background: var(--teal);
   color: var(--white);
+}
+
+/* btn--full: full-width button utility */
+.btn--full {
+  width: 100%;
+  display: block;
 }
 
 .btn--lg {
@@ -248,12 +259,14 @@ p:last-child { margin-bottom: 0; }
   font-weight: 500;
   color: var(--charcoal);
   border-radius: var(--radius);
-  transition: color var(--transition), background var(--transition);
+  transition: color var(--transition-color), background var(--transition-color);
 }
 
-.nav-links a:hover {
-  color: var(--teal);
-  background: rgba(26,95,107,0.07);
+@media (hover: hover) and (pointer: fine) {
+  .nav-links a:hover {
+    color: var(--teal);
+    background: rgba(26,95,107,0.07);
+  }
 }
 
 .nav-links a.active {
@@ -288,7 +301,7 @@ p:last-child { margin-bottom: 0; }
   height: 2px;
   background: var(--charcoal);
   border-radius: 2px;
-  transition: transform var(--transition), opacity var(--transition);
+  transition: transform var(--transition-transform), opacity var(--transition-color);
 }
 
 .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -436,12 +449,14 @@ p:last-child { margin-bottom: 0; }
   justify-content: center;
   font-size: 1.8rem;
   margin: 0 auto 1.25rem;
-  transition: background var(--transition), transform var(--transition);
+  transition: background var(--transition-color), transform var(--transition-transform);
 }
 
-.mission-card:hover .mission-card__icon {
-  background: var(--teal);
-  transform: scale(1.08);
+@media (hover: hover) and (pointer: fine) {
+  .mission-card:hover .mission-card__icon {
+    background: var(--teal);
+    transform: scale(1.05);
+  }
 }
 
 .mission-card h3 {
@@ -564,12 +579,14 @@ p:last-child { margin-bottom: 0; }
   border-radius: 10px;
   padding: 2rem;
   box-shadow: var(--shadow);
-  transition: box-shadow var(--transition), transform var(--transition);
+  transition: box-shadow var(--transition-shadow), transform var(--transition-transform);
 }
 
-.card:hover {
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-3px);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
 }
 
 .card h3 {
@@ -922,7 +939,7 @@ p:last-child { margin-bottom: 0; }
 .footer-col ul li a {
   color: rgba(255,255,255,0.65);
   font-size: 0.9rem;
-  transition: color var(--transition);
+  transition: color var(--transition-color);
 }
 
 .footer-col ul li a:hover { color: var(--amber); }
@@ -941,15 +958,22 @@ p:last-child { margin-bottom: 0; }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.95rem;
   color: rgba(255,255,255,0.65);
-  transition: background var(--transition), border-color var(--transition), color var(--transition);
+  transition: background var(--transition-color), border-color var(--transition-color), color var(--transition-color);
 }
 
-.footer-social a:hover {
-  background: var(--amber);
-  border-color: var(--amber);
-  color: var(--white);
+.footer-social a svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer-social a:hover {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: var(--white);
+  }
 }
 
 .footer-bottom {
@@ -976,6 +1000,111 @@ p:last-child { margin-bottom: 0; }
 }
 
 .footer-bottom a:hover { color: var(--amber); }
+
+/* ---------- Utility classes (replacing common inline styles) ---------- */
+
+/* Eyebrow label in amber (used in story sections, CTAs) */
+.eyebrow--amber {
+  color: var(--amber);
+}
+
+/* Section header variant: left-aligned, full-width */
+.section__header--left {
+  text-align: left;
+  max-width: 100%;
+}
+
+/* Centered container with narrow max-width */
+.container--narrow {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container--narrow-760 {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container--narrow-780 {
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Text alignment */
+.text-center { text-align: center; }
+
+/* Centered btn-group */
+.btn-group--center { justify-content: center; }
+
+/* Icon badge centered with bottom margin */
+.icon-badge--center {
+  margin: 0 auto 1rem;
+}
+
+/* Cards with centered content */
+.card--center { text-align: center; }
+
+/* Section with no top padding */
+.section--no-top { padding-top: 0; }
+
+/* Content images with standard rounding and shadow */
+.img-rounded {
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  width: 100%;
+}
+
+/* Story section inline eyebrow overrides */
+.story-eyebrow {
+  color: var(--amber);
+  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+}
+
+/* Grid with tighter gap for form rows */
+.grid-2--tight { gap: 1rem; }
+
+/* Section grid with bottom margin */
+.grid-3--mb { margin-bottom: 3.5rem; }
+
+/* Paragraph with custom bottom margin */
+.mb-1 { margin-bottom: 1rem; }
+.mt-1\.5 { margin-top: 1.5rem; }
+
+/* Full-width card context */
+.card--mt { margin-top: 2rem; }
+
+/* Narrow centered content block */
+.content-centered {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Contact grid: align items to start */
+.grid-2--top { align-items: start; gap: 4rem; }
+
+/* Heading with larger bottom margin */
+.h2--mb-lg { margin-bottom: 1.75rem; }
+
+/* FAQ / details blocks */
+.faq-item {
+  margin-bottom: 1rem;
+  padding: 1.1rem 1.4rem;
+  background: var(--cream);
+  border-radius: 10px;
+}
+
+.faq-item summary {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.faq-item p {
+  margin-top: 0.8rem;
+}
 
 /* ---------- Placeholders (images) ---------- */
 .img-placeholder {
